@@ -27,6 +27,32 @@
     .section h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 20px; }
     .section p { color: #78716C; margin-bottom: 16px; }
 
+    form { display: flex; flex-direction: column; gap: 12px; max-width: 500px; }
+    input, textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #E7E5E4;
+      border-radius: 6px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      background: #fff;
+      color: #292524;
+    }
+    input:focus, textarea:focus { outline: none; border-color: #C2410C; }
+    textarea { resize: vertical; min-height: 120px; }
+    button {
+      background: #C2410C;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      align-self: flex-start;
+    }
+    button:hover { background: #9A3412; }
+
     footer { padding: 40px 0; border-top: 1px solid #E7E5E4; text-align: center; color: #A8A29E; font-size: 0.85rem; }
   </style>
 </head>
@@ -58,7 +84,13 @@
   <section class="section">
     <div class="container">
       <h2>Contact</h2>
-      <p>Coming soon.</p>
+      <p>Send me a message and I'll get back to you.</p>
+      <form action="https://formspree.io/f/xnjkjyby" method="POST">
+        <input type="text" name="name" placeholder="Your name" required />
+        <input type="email" name="email" placeholder="Your email" required />
+        <textarea name="message" placeholder="Your message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
     </div>
   </section>
 
