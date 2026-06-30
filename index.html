@@ -33,8 +33,61 @@
     .entry p { color: #6B7280; margin-bottom: 16px; line-height: 1.8; }
     .entry p:last-child { margin-bottom: 0; }
 
-    form { display: flex; flex-direction: column; gap: 12px; max-width: 500px; }
-    input, textarea {
+    .signup-card {
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 32px 24px;
+      background: #fff;
+      border: 1px solid #E5E7EB;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .signup-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #1A1A2E;
+    }
+    .signup-card p {
+      color: #6B7280;
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+    .signup-form {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .signup-form input {
+      flex: 1;
+      min-width: 200px;
+      padding: 12px 16px;
+      border: 1px solid #E5E7EB;
+      border-radius: 6px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      background: #F8F9FA;
+      color: #1A1A2E;
+    }
+    .signup-form input:focus { outline: none; border-color: #4A7FA5; }
+    .signup-form button {
+      background: #1A1A2E;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .signup-form button:hover { background: #4A7FA5; }
+
+    form.contact { display: flex; flex-direction: column; gap: 12px; max-width: 500px; }
+    form.contact input, form.contact textarea {
       width: 100%;
       padding: 12px 16px;
       border: 1px solid #E5E7EB;
@@ -44,9 +97,9 @@
       background: #fff;
       color: #1A1A2E;
     }
-    input:focus, textarea:focus { outline: none; border-color: #4A7FA5; }
-    textarea { resize: vertical; min-height: 120px; }
-    button {
+    form.contact input:focus, form.contact textarea:focus { outline: none; border-color: #4A7FA5; }
+    form.contact textarea { resize: vertical; min-height: 120px; }
+    form.contact button {
       background: #4A7FA5;
       color: #fff;
       border: none;
@@ -57,7 +110,7 @@
       cursor: pointer;
       align-self: flex-start;
     }
-    button:hover { background: #3A6A8C; }
+    form.contact button:hover { background: #3A6A8C; }
 
     footer { padding: 40px 0; border-top: 1px solid #E5E7EB; text-align: center; color: #9CA3AF; font-size: 0.85rem; }
   </style>
@@ -87,6 +140,19 @@
 
   <section class="section">
     <div class="container">
+      <div class="signup-card">
+        <h3>Follow along</h3>
+        <p>Get an email when I post a new entry. No spam, just the journal.</p>
+        <form class="signup-form" action="https://buttondown.email/api/emails/embed-subscribe/harold_john" method="post" target="_blank">
+          <input type="email" name="email" placeholder="your@email.com" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
       <h2>About</h2>
       <p>This is my experiment space. I'm learning to build apps and websites. I'm starting from zero — no experience, no shortcuts. Just showing up and figuring it out as I go.</p>
       <p>My intention is simple: I want to create things that actually help people. I'm doing this for my family. And I'm hopeful that if I keep going, I can get good enough at this to make a real difference.</p>
@@ -104,7 +170,7 @@
     <div class="container">
       <h2>Contact</h2>
       <p>Send me a message and I'll get back to you.</p>
-      <form action="https://formspree.io/f/xnjkjyby" method="POST">
+      <form class="contact" action="https://formspree.io/f/xnjkjyby" method="POST">
         <input type="text" name="name" placeholder="Your name" required />
         <input type="email" name="email" placeholder="Your email" required />
         <textarea name="message" placeholder="Your message" required></textarea>
